@@ -4,20 +4,24 @@ class Aside extends Component{
     
     constructor(props){
         super(props);
-        this.title = React.createRef();
-        this.changeColor = this.changeColor.bind(this)
+        this.aside = React.createRef();
+        this.changeWidth = this.changeWidth.bind(this)
         
     }
-    changeColor(){
-       console.log(this.title)
-       this.title.current.style.width = "50px";
+    changeWidth(){
+        if(this.aside.current.style.width !== '3.44em'){
+            this.aside.current.style.width = '3.44em'
+        } else {
+           this.aside.current.style.width = '12.5em'     
+        }
+         //this.aside.current.style.width = "3.44em";
     }
     
     render(){
         return(
             
-            <div  className="aside" ref={this.title}>
-                <button className="boton"  onClick= {this.changeColor}>Boton</button>
+            <div  className="aside" ref={this.aside}>
+                <button className="boton"  onClick= {this.changeWidth}>Boton</button>
             </div>
         )
     }
@@ -79,4 +83,9 @@ class BotonMenu extends Component {
     }
 }
 
-export default BotonMenu;*/
+export default BotonMenu;
+
+//siempre y cuando tambien tengan su constructor, en cada componente, esto es para
+ traer funciones que se encuentran en un componente y poderlas utilizar en otros componentes
+ <MenuToggle visible={this.state.visible}/>
+ <BotonMenu toggleMenu={this.toggleMenu}/>*/
